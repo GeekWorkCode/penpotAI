@@ -1,15 +1,12 @@
 penpot.ui.open("Penpot plugin starter template", `?theme=${penpot.theme}`);
+interface ElementMessage {
+  type: 'executeCode';
+  createCode: string;
+}
 
-penpot.ui.onMessage<string>((message) => {
-  if (message === "create-text") {
-    const text = penpot.createText("Hello world!");
-
-    if (text) {
-      text.x = penpot.viewport.center.x;
-      text.y = penpot.viewport.center.y;
-
-      penpot.selection = [text];
-    }
+penpot.ui.onMessage<ElementMessage>((message) => {
+  if (message.type === 'executeCode') {
+    eval(message.createCode);
   }
 });
 
