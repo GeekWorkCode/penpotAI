@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Penpot plugin example</title>
-  </head>
-  <body>
-    <p>Penpot plugin starter template</p>
 
-    <p>
-      Checkout the
-      <a target="_blank" href="https://help.penpot.app/plugins/"
-        >documentation</a
-      >
-      to get started.
-    </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penpot plugin example</title>
+</head>
 
-    <button type="button" data-appearance="primary" data-handler="create-text">
-      Create text
+<body>
+  <p>Penpot plugin starter template</p>
+
+  <p>
+    Checkout the
+    <a target="_blank" href="https://help.penpot.app/plugins/">documentation</a>
+    to get started.
+  </p>
+
+  <button type="button" data-appearance="primary" data-handler="create-text">
+    Create text
+  </button>
+
+  <!-- 添加代码输入区域 -->
+  <div style="margin: 20px 0;">
+    <textarea id="codeInput" rows="5" style="width: 100%;" placeholder="输入要执行的代码，例如:
+const text = penpot.createText('Hello world!');
+if (text) {
+  text.x = penpot.viewport.center.x;
+  text.y = penpot.viewport.center.y;
+  penpot.selection = [text];
+}"></textarea>
+    <button type="button" data-appearance="primary" data-handler="execute-code">
+      执行代码
     </button>
+  </div>
 
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

@@ -9,6 +9,18 @@ document.querySelector("[data-handler='create-text']")?.addEventListener("click"
   parent.postMessage("create-text", "*");
 });
 
+document.querySelector("[data-handler='execute-code']")?.addEventListener("click", () => {
+  const codeInput = document.querySelector("#codeInput") as HTMLTextAreaElement;
+  const code = codeInput.value.trim();
+  
+  if (code) {
+    parent.postMessage({
+      type: 'executeCode',
+      createCode: code
+    }, "*");
+  }
+});
+
 // Listen plugin.ts messages
 window.addEventListener("message", (event) => {
   if (event.data.source === "penpot") {
