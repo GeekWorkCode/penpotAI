@@ -1,6 +1,12 @@
 {
-  "name": "Penpot starter plugin",
+  "name": "Penpot AI plugin",
   "code": "plugin.js",
-  "description": "This is a starter plugin for Penpot",
-  "permissions": ["content:read", "content:write"]
+  "description": "This is a plugin for Penpot AI",
+  "permissions": [
+    "content:read",
+    "content:write",
+    "library:read",
+    "library:write",
+    "user:read"
+  ]
 }
